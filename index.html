@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>PTCG</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="main.css" rel="stylesheet">
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      
+      .radio-pull-right {
+        margin: 5px;
+      }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.9/angular.min.js" integrity="sha256-b5NvmvUcyr0wpBOLnNbaWH5zKQAivhj8yMYhfXEumQA=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="bootstrap.min.js" ></script>
+    <script>
+      var app = angular.module("myApp", []);
+      app.controller("cardListCtrl", function($scope) {
+        $scope.records = [
+           {
+                "name" : "卡璞·哞哞",
+                "img" : "027.jpg",
+                "type" : "1",
+                "rarity" : "R",
+                "pack" : "1",
+                "energy" : "grass",
+            },{
+                "name" : "莉莉艾",
+                "img" : "151.jpg",
+                "type" : "2",
+                "rarity" : "U",
+                "pack" : "2",
+                "energy" : "",
+            },{
+                "name" : "以太樂園保護區",
+                "img" : "153.jpg",
+                "type" : "3",
+                "rarity" : "SR",
+                "pack" : "3",
+                "energy" : "",
+            },{
+                "name" : "雙重無色能量",
+                "img" : "157.jpg",
+                "type" : "4",
+                "rarity" : "UR",
+                "pack" : "4",
+                "energy" : "colorless",
+            }
+        ]
+      });
+    </script>
+  </head>
+
+  <body ng-app="myApp">
+
+    <header>
+      <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">About</h4>
+              <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white">Contact</h4>
+              <ul class="list-unstyled">
+                <li><a href="#" class="text-white">Follow on Twitter</a></li>
+                <li><a href="#" class="text-white">Like on Facebook</a></li>
+                <li><a href="#" class="text-white">Email me</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container d-flex justify-content-between">
+          <a href="#" class="navbar-brand d-flex align-items-center">            
+            <strong>PTCG</strong>
+          </a>
+          <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        </div>
+      </div>
+    </header>
+
+    <main role="main">
+
+      <section class="jumbotron text-center">
+        <!-- pokemon card search form -->
+        <form>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">卡片名稱:</label>
+            <div class="col-sm-10">
+              <input class="form-control" type="text" placeholder="Search card name" aria-label="Search" ng-model="search.name">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">種類:</label>
+            <div class="col-sm-10">
+              <select class="form-control" ng-model="search.type">
+                <option value="" selected>所有</option>
+                <option value="1">保可夢</option>
+                <option value="2">支援者</option>
+                <option value="3">場地</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">卡包:</label>
+            <div class="col-sm-10">
+              <select class="form-control" ng-model="search.pack">
+                <option value="" selected>所有</option>
+                <option value="1">第一彈:眾星雲集</option>
+                <option value="2">第二彈:美夢成真</option>
+                <option value="3">第三彈:雙倍爆擊</option>
+                <option value="4">第四彈:傳說交鋒</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">稀有度:</label>
+            <div class="col-sm-10">
+              <select class="form-control" ng-model="search.rarity">
+                <option value="" selected>所有</option>
+                <option value="R">R</option>
+                <option value="U">U</option>
+                <option value="SR">SR</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">能量:</label>
+            <div class="col-sm-10" ng-init="search.energy='' ">
+              <label class="radio-pull-right"><input type="radio" name="energy" value="" [checked]="true" ng-model="search.energy"><label class="radio-pull-right">所有</label></label>
+              <label class="radio-pull-right"><input type="radio" name="energy" value="fire" ng-model="search.energy"><img  class="radio-pull-right" src="20px-火_TCG.webp"></label>
+              <label class="radio-pull-right"><input type="radio" name="energy" value="water" ng-model="search.energy"><img  class="radio-pull-right" src="20px-水_TCG.webp"></label>
+              <label class="radio-pull-right"><input type="radio" name="energy" value="colorless" ng-model="search.energy"><img  class="radio-pull-right" src="20px-无色_TCG.webp"></label>
+              <label class="radio-pull-right"><input type="radio" name="energy" value="grass" ng-model="search.energy"><img  class="radio-pull-right" src="20px-草_TCG.webp"></label>
+              <!-- <select class="form-control" ng-model="search.energy">
+                <option value="" selected>所有</option>
+                <option value="grass"><img  class="bd-placeholder-img card-img-top" width="100%" src="20px-草_TCG.webp">草</option>
+                <option value="fire">火</option>
+                <option value="water">水</option>
+                <option value="colorless">無</option>
+              </select> -->
+            </div>
+          </div>
+        </form>
+        <!-- pokemon card search form -->
+      </section>
+
+      <div class="album py-5 bg-light">
+        <div class="container">
+          <div class="row" ng-controller="cardListCtrl">
+            <!-- pokemon card list -->
+            <div class="col-md-4" ng-repeat="x in records | filter:search.name | filter:search.type:search.type ? true : false | filter:search.pack:search.pack ? true : false | filter:search.rarity:search.rarity ? true : false | filter:search.energy:search.energy ? true : false" >
+              <div class="card mb-4 shadow-sm">
+                <img  class="bd-placeholder-img card-img-top" width="100%" src="{{ x.img }}">
+                <!-- <div class="card-body">
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+            <!-- pokemon card list -->
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Back to top</a>
+        </p>
+        <p>This example is &copy; Bootstrap, but please download and customize it for yourself!</p>
+        <p>New to Bootstrap? <a href="{{ site.url }}/">Visit the homepage</a> or read our <a href="#">getting started guide</a>.</p>
+      </div>
+    </footer>
+
+  </body>
+</html>
